@@ -2,8 +2,15 @@
 
 A beautiful, user-friendly web application that simplifies Twitter OAuth 2.0 setup with Make.com automation. This wizard guides you through the entire OAuth flow and automatically generates a ready-to-use Make.com scenario.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Status](https://img.shields.io/badge/status-active-success.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://avisangle.github.io/make-twitter-oauth/)
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://avisangle.github.io/make-twitter-oauth/)
+
+## 🌐 Live Application
+
+**👉 [Launch the Wizard](https://avisangle.github.io/make-twitter-oauth/) 👈**
+
+No installation needed! Use the live web application directly in your browser.
 
 ## ✨ Features
 
@@ -15,12 +22,34 @@ A beautiful, user-friendly web application that simplifies Twitter OAuth 2.0 set
 - **🎨 Beautiful UI** - Modern gradient design with responsive layout
 - **🚀 One-Click Twitter Post** - Test your integration with an automatic tweet
 
+## 📸 Screenshots
+
+> **Note:** Screenshots coming soon! The live application is available at [https://avisangle.github.io/make-twitter-oauth/](https://avisangle.github.io/make-twitter-oauth/)
+
+<!--
+To add screenshots, create an `images` folder and add:
+- Step 1: Credentials input
+- Step 2: PKCE parameters
+- Step 3: Twitter authorization
+- Step 4: Code extraction and scenario download
+-->
+
+### Preview
+
+Visit the [live demo](https://avisangle.github.io/make-twitter-oauth/) to see the wizard in action!
+
 ## 🚀 Quick Start
+
+### Option 1: Use the Live App (Recommended)
+
+Simply visit **[https://avisangle.github.io/make-twitter-oauth/](https://avisangle.github.io/make-twitter-oauth/)** in your browser and start using the wizard immediately!
+
+### Option 2: Run Locally
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/make-twitter.git
-   cd make-twitter
+   git clone https://github.com/avisangle/make-twitter-oauth.git
+   cd make-twitter-oauth
    ```
 
 2. **Open in browser:**

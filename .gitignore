@@ -1,0 +1,31 @@
+# Screenshots and images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Test files
+test-*.json
+
+# Old/deprecated files
+generate-scenario.html
+twitter-oauth-modules.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Development notes (keep in repo but could exclude if preferred)
+# decisions.md
+# progress.md

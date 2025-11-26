@@ -22,22 +22,6 @@ No installation needed! Use the live web application directly in your browser.
 - **🎨 Beautiful UI** - Modern gradient design with responsive layout
 - **🚀 One-Click Twitter Post** - Test your integration with an automatic tweet
 
-## 📸 Screenshots
-
-> **Note:** Screenshots coming soon! The live application is available at [https://avisangle.github.io/make-twitter-oauth/](https://avisangle.github.io/make-twitter-oauth/)
-
-<!--
-To add screenshots, create an `images` folder and add:
-- Step 1: Credentials input
-- Step 2: PKCE parameters
-- Step 3: Twitter authorization
-- Step 4: Code extraction and scenario download
--->
-
-### Preview
-
-Visit the [live demo](https://avisangle.github.io/make-twitter-oauth/) to see the wizard in action!
-
 ## 🚀 Quick Start
 
 ### Option 1: Use the Live App (Recommended)
@@ -131,26 +115,6 @@ make-twitter/
 - ✅ State parameter for CSRF protection
 - ✅ No credentials stored or transmitted to third parties
 - ✅ Client-side only processing
-
-## 🎨 Customization
-
-### Changing the Theme
-
-Edit the CSS gradient in `index.html`:
-
-```css
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-```
-
-### Modifying the Tweet Text
-
-Edit the tweet text in `scenario-generator.js`:
-
-```javascript
-data: JSON.stringify({
-  text: "Your custom tweet text here! 🚀"
-})
-```
 
 ## 🐛 Troubleshooting
 

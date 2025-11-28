@@ -7,7 +7,7 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="Fix Twitter OAuth 2.0 connection errors with Make.com. Free wizard solves authentication failures, 401 errors, and 403 forbidden issues. PKCE-secured scenarios in 30 seconds. No installation required.">
-  <meta name="keywords" content="Twitter OAuth, Make.com, OAuth 2.0, PKCE, automation, no-code, Twitter API, Make scenario, OAuth wizard, Twitter integration, connect Twitter Make.com, Twitter authentication error, 401 error, 403 forbidden, OAuth connection failed, Twitter X API, HTTP OAuth 2.0, redirect URI, client credentials, Twitter Make.com setup, unable to connect Twitter">
+  <meta name="keywords" content="make.com twitter integration, make.com twitter connection, make.com twitter issue, Twitter OAuth Make.com, X OAuth Make.com, Twitter Make.com error, unable to connect twitter make.com, twitter make.com connection failed, make twitter 403 forbidden, make twitter 401 unauthorized, twitter authentication failed make, twitter oauth error make, X create a post error, make twitter not working, impossible to connect twitter make, how to fix twitter make connection, resolve twitter oauth make, twitter make.com troubleshooting, twitter oauth solution make, OAuth 2.0, PKCE, automation, no-code, Twitter API, Make scenario, OAuth wizard, Twitter integration, connect Twitter Make.com, Twitter authentication error, 401 error, 403 forbidden, OAuth connection failed, Twitter X API, HTTP OAuth 2.0, redirect URI, client credentials, Twitter Make.com setup, make http oauth 2.0 twitter, twitter developer app make.com, twitter callback url make, code verifier challenge twitter, X API make.com, twitter x oauth, integromat twitter">
   <meta name="author" content="Avinash Sangle">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://avisangle.github.io/make-twitter-oauth/">
@@ -15,20 +15,142 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://avisangle.github.io/make-twitter-oauth/">
-  <meta property="og:title" content="Twitter OAuth Setup Wizard for Make.com | Free PKCE Tool">
-  <meta property="og:description" content="Free Twitter OAuth 2.0 setup wizard for Make.com. Automatically generates PKCE-secured scenarios in 30 seconds. No installation required.">
-  <meta property="og:site_name" content="Twitter OAuth Setup Wizard">
+  <meta property="og:title" content="Fix Twitter/X OAuth Connection Issues with Make.com | Free PKCE Wizard">
+  <meta property="og:description" content="Solve Make.com Twitter integration errors: 401 unauthorized, 403 forbidden, connection failed. Free OAuth 2.0 wizard with PKCE. Fix authentication issues in 30 seconds.">
+  <meta property="og:site_name" content="Twitter OAuth Setup Wizard for Make.com">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://avisangle.github.io/make-twitter-oauth/">
-  <meta name="twitter:title" content="Twitter OAuth Setup Wizard for Make.com | Free PKCE Tool">
-  <meta name="twitter:description" content="Free Twitter OAuth 2.0 setup wizard for Make.com. Automatically generates PKCE-secured scenarios in 30 seconds. No installation required.">
+  <meta name="twitter:title" content="Fix Twitter/X OAuth Connection Issues with Make.com | Free PKCE Wizard">
+  <meta name="twitter:description" content="Solve Make.com Twitter integration errors: 401 unauthorized, 403 forbidden, connection failed. Free OAuth 2.0 wizard with PKCE. Fix authentication issues in 30 seconds.">
   <meta name="twitter:creator" content="@avinashs">
 
   <!-- Additional SEO -->
   <meta name="theme-color" content="#667eea">
   <meta name="application-name" content="Twitter OAuth Wizard">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Fix Twitter OAuth Connection Issues with Make.com",
+    "description": "Step-by-step guide to solve Twitter/X OAuth 2.0 connection errors with Make.com using PKCE authentication",
+    "image": "https://avisangle.github.io/make-twitter-oauth/",
+    "totalTime": "PT30S",
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Twitter Developer Portal Account"
+      },
+      {
+        "@type": "HowToTool",
+        "name": "Make.com Account"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Enter Twitter App Credentials",
+        "text": "Enter your Twitter Client ID and Client Secret from the Twitter Developer Portal",
+        "url": "https://avisangle.github.io/make-twitter-oauth/#step1"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Generate Make.com Scenario",
+        "text": "Automatically generate Code Verifier and Code Challenge for PKCE authentication",
+        "url": "https://avisangle.github.io/make-twitter-oauth/#step2"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Authorize with Twitter",
+        "text": "Complete OAuth authorization with Twitter and copy the redirect URL",
+        "url": "https://avisangle.github.io/make-twitter-oauth/#step3"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Import to Make.com",
+        "text": "Extract authorization code and import the generated scenario to Make.com",
+        "url": "https://avisangle.github.io/make-twitter-oauth/#step4"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Twitter OAuth Setup Wizard for Make.com",
+    "applicationCategory": "DeveloperApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "operatingSystem": "Web Browser",
+    "description": "Free wizard to fix Twitter OAuth 2.0 connection errors with Make.com. Solves 401 unauthorized and 403 forbidden authentication issues using PKCE."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why am I getting a 401 Unauthorized error with Make.com Twitter integration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 401 error occurs when Make.com cannot authenticate with Twitter's API. This typically happens because your Twitter app credentials are incorrect, the OAuth 2.0 flow wasn't completed properly with PKCE authentication, the authorization code has expired, or Make.com's built-in Twitter connection doesn't support PKCE which Twitter requires. Use this wizard to generate a PKCE-secured OAuth 2.0 connection that Twitter accepts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I fix 403 Forbidden error when connecting Twitter to Make.com?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 403 Forbidden error means Twitter is rejecting your authentication request. Common causes include incorrect app permissions, mismatched redirect URLs, account type limitations, or missing PKCE authentication. This wizard automatically handles PKCE and uses the correct redirect URL: https://www.make.com/oauth/cb/oauth2"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my Make.com Twitter connection not working anymore?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Make.com has decommissioned their native Twitter/X integration. You now need to use OAuth 2.0 with PKCE authentication manually. This wizard solves that problem by generating a working Make.com scenario with proper OAuth 2.0 PKCE authentication that Twitter requires."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is PKCE and why do I need it for Twitter OAuth?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PKCE (Proof Key for Code Exchange) is a security extension for OAuth 2.0 that Twitter requires. It prevents authorization code interception attacks. Make.com's HTTP OAuth 2.0 module doesn't natively support PKCE, which is why direct Twitter connections fail. This wizard generates the required Code Verifier and Code Challenge automatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm getting Unable to connect Twitter with Make.com via HTTP OAuth 2.0 - what should I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This error happens because Make's standard HTTP OAuth 2.0 connection doesn't support PKCE authentication that Twitter requires. Instead of trying to manually configure HTTP OAuth 2.0 in Make.com, use this wizard which automatically generates a complete working scenario with PKCE authentication included."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this with X (formerly Twitter)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! This wizard works with both Twitter and X (the platform's new name). The API endpoints and OAuth authentication process are the same. Whether you call it Twitter or X, this tool will help you connect it to Make.com."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -325,8 +447,46 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>🔐 Twitter OAuth Setup Wizard</h1>
-      <p>Connect your Twitter app with Make.com in 4 easy steps</p>
+      <h1>🔐 Fix Twitter/X OAuth Connection Issues with Make.com</h1>
+      <p>Solve 401 Unauthorized & 403 Forbidden Errors | Free PKCE OAuth 2.0 Wizard for Make.com Twitter Integration</p>
+      <p style="font-size: 0.95em; margin-top: 10px; opacity: 0.9;">Connect your Twitter/X app with Make.com in 4 easy steps using PKCE authentication</p>
+    </div>
+
+    <!-- Problem/Solution Overview -->
+    <div class="card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);">
+      <h2 style="color: #333; margin-bottom: 20px; font-size: 1.8em; text-align: center;">Are you struggling with Make.com Twitter integration?</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 25px;">
+        <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #f44336;">
+          <h3 style="color: #c62828; margin-bottom: 10px; font-size: 1.2em;">❌ Common Errors</h3>
+          <ul style="margin-left: 20px; color: #555; line-height: 1.8; font-size: 0.95em;">
+            <li><strong>401 Unauthorized</strong> errors</li>
+            <li><strong>403 Forbidden</strong> errors</li>
+            <li>"Unable to connect Twitter"</li>
+            <li>"OAuth connection failed"</li>
+            <li>"Authentication error"</li>
+          </ul>
+        </div>
+
+        <div style="background: white; padding: 20px; border-radius: 12px; border-left: 4px solid #4caf50;">
+          <h3 style="color: #2e7d32; margin-bottom: 10px; font-size: 1.2em;">✅ Why This Happens</h3>
+          <ul style="margin-left: 20px; color: #555; line-height: 1.8; font-size: 0.95em;">
+            <li>Make.com decommissioned Twitter integration</li>
+            <li>Twitter requires <strong>PKCE</strong> authentication</li>
+            <li>Make's HTTP OAuth 2.0 doesn't support PKCE</li>
+            <li>Manual setup is complex & error-prone</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: white; padding: 25px; border-radius: 12px; text-align: center; border: 3px solid #667eea;">
+        <h3 style="color: #667eea; margin-bottom: 15px; font-size: 1.5em;">🎯 Our Solution</h3>
+        <p style="color: #555; line-height: 1.8; font-size: 1.05em; max-width: 700px; margin: 0 auto;">
+          This free wizard automatically generates a <strong>PKCE-secured Make.com scenario</strong> that bypasses all Twitter OAuth connection issues.
+          No manual configuration needed. Works with both <strong>Twitter and X (formerly Twitter)</strong>.
+          Complete setup in <strong>30 seconds</strong>.
+        </p>
+      </div>
     </div>
 
     <div class="card">
@@ -495,6 +655,80 @@
       <p style="color: #666; font-size: 0.9em;">
         Need help? Check the <a href="https://developer.twitter.com/en/docs/authentication/oauth-2-0" target="_blank" style="color: #667eea;">Twitter OAuth 2.0 Documentation</a>
       </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="card">
+      <h2 style="color: #333; margin-bottom: 25px; font-size: 2em; text-align: center;">❓ Frequently Asked Questions</h2>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">Why am I getting a 401 Unauthorized error with Make.com Twitter integration?</h3>
+          <p style="color: #555; line-height: 1.7; margin-bottom: 10px;">
+            The 401 error occurs when Make.com cannot authenticate with Twitter's API. This typically happens because:
+          </p>
+          <ul style="margin-left: 30px; color: #555; line-height: 1.8;">
+            <li>Your Twitter app credentials (Client ID/Secret) are incorrect or expired</li>
+            <li>The OAuth 2.0 flow wasn't completed properly with PKCE authentication</li>
+            <li>The authorization code has expired (they only last 30 seconds)</li>
+            <li>Make.com's built-in Twitter connection doesn't support PKCE, which Twitter requires</li>
+          </ul>
+          <p style="color: #555; line-height: 1.7; margin-top: 10px;">
+            <strong>Solution:</strong> Use this wizard to generate a PKCE-secured OAuth 2.0 connection that Twitter accepts.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">How do I fix "403 Forbidden" error when connecting Twitter to Make.com?</h3>
+          <p style="color: #555; line-height: 1.7; margin-bottom: 10px;">
+            The 403 Forbidden error means Twitter is rejecting your authentication request. Common causes:
+          </p>
+          <ul style="margin-left: 30px; color: #555; line-height: 1.8;">
+            <li>Your Twitter Developer App doesn't have the correct permissions (needs Read and Write)</li>
+            <li>The redirect URL in your Twitter app settings doesn't match Make.com's callback URL</li>
+            <li>Your Twitter account type doesn't support the API endpoint you're trying to use</li>
+            <li>PKCE authentication is required but not properly configured</li>
+          </ul>
+          <p style="color: #555; line-height: 1.7; margin-top: 10px;">
+            <strong>Solution:</strong> This wizard automatically handles PKCE and uses the correct redirect URL: <code style="background: #f5f5f5; padding: 2px 6px; border-radius: 4px;">https://www.make.com/oauth/cb/oauth2</code>
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">Why is my Make.com Twitter connection not working anymore?</h3>
+          <p style="color: #555; line-height: 1.7;">
+            Make.com has decommissioned their native Twitter/X integration. You now need to use OAuth 2.0 with PKCE authentication manually. This wizard solves that problem by generating a working Make.com scenario with proper OAuth 2.0 PKCE authentication that Twitter requires.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">What is PKCE and why do I need it for Twitter OAuth?</h3>
+          <p style="color: #555; line-height: 1.7;">
+            PKCE (Proof Key for Code Exchange) is a security extension for OAuth 2.0 that Twitter requires. It prevents authorization code interception attacks. Make.com's HTTP OAuth 2.0 module doesn't natively support PKCE, which is why direct Twitter connections fail. This wizard generates the required Code Verifier and Code Challenge automatically.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">How long does the authorization code last?</h3>
+          <p style="color: #555; line-height: 1.7;">
+            Twitter authorization codes expire in <strong>30 seconds</strong>. You must import the downloaded scenario to Make.com and run it immediately after pasting the redirect URL. The wizard generates a ready-to-use scenario file with the auth code pre-filled to make this process as fast as possible.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">Can I use this with X (formerly Twitter)?</h3>
+          <p style="color: #555; line-height: 1.7;">
+            Yes! This wizard works with both Twitter and X (the platform's new name). The API endpoints and OAuth authentication process are the same. Whether you call it Twitter or X, this tool will help you connect it to Make.com.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #667eea; margin-bottom: 10px; font-size: 1.3em;">I'm getting "Unable to connect Twitter with Make.com via HTTP OAuth 2.0" - what should I do?</h3>
+          <p style="color: #555; line-height: 1.7;">
+            This error happens because Make's standard HTTP OAuth 2.0 connection doesn't support PKCE authentication that Twitter requires. Instead of trying to manually configure HTTP OAuth 2.0 in Make.com, use this wizard which automatically generates a complete working scenario with PKCE authentication included.
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Support Section -->

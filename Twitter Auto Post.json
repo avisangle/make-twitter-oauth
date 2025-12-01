@@ -1,0 +1,1159 @@
+{
+    "name": "Twitter Auto Post",
+    "flow": [
+        {
+            "id": 1,
+            "module": "datastore:GetRecord",
+            "version": 1,
+            "parameters": {
+                "datastore": 137077
+            },
+            "mapper": {
+                "key": "access_token_twitter",
+                "returnWrapped": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 300,
+                    "name": "Get Access Token"
+                },
+                "restore": {
+                    "parameters": {
+                        "datastore": {
+                            "label": "My data store"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key",
+                        "required": true
+                    },
+                    {
+                        "name": "returnWrapped",
+                        "type": "boolean",
+                        "label": "Return Wrapped Output",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "help": "",
+                        "name": "Value",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": false,
+                        "multiline": false
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "http:ActionSendData",
+            "version": 3,
+            "parameters": {
+                "handleErrors": true,
+                "useNewZLibDeCompress": true
+            },
+            "mapper": {
+                "ca": "",
+                "qs": [],
+                "url": "https://api.twitter.com/2/tweets",
+                "data": "{\n  \"text\": \"This test post\"\n}",
+                "gzip": true,
+                "method": "post",
+                "headers": [
+                    {
+                        "name": "Authorization",
+                        "value": "Bearer {{1.Value}}"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "timeout": "",
+                "useMtls": false,
+                "authPass": "",
+                "authUser": "",
+                "bodyType": "raw",
+                "contentType": "",
+                "serializeUrl": false,
+                "shareCookies": false,
+                "parseResponse": true,
+                "followRedirect": true,
+                "useQuerystring": false,
+                "followAllRedirects": false,
+                "rejectUnauthorized": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 300,
+                    "name": "Post on Twitter"
+                },
+                "restore": {
+                    "expect": {
+                        "qs": {
+                            "mode": "chose"
+                        },
+                        "method": {
+                            "mode": "chose",
+                            "label": "POST"
+                        },
+                        "headers": {
+                            "mode": "chose",
+                            "items": [
+                                null,
+                                null
+                            ]
+                        },
+                        "bodyType": {
+                            "label": "Raw"
+                        },
+                        "contentType": {
+                            "label": "Empty"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "handleErrors",
+                        "type": "boolean",
+                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                        "required": true
+                    },
+                    {
+                        "name": "useNewZLibDeCompress",
+                        "type": "hidden"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "serializeUrl",
+                        "type": "boolean",
+                        "label": "Serialize URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "get",
+                                "head",
+                                "post",
+                                "put",
+                                "patch",
+                                "delete",
+                                "options"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "validate": {
+                            "enum": [
+                                "raw",
+                                "x_www_form_urlencoded",
+                                "multipart_form_data"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "parseResponse",
+                        "type": "boolean",
+                        "label": "Parse response",
+                        "required": true
+                    },
+                    {
+                        "name": "authUser",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "authPass",
+                        "type": "password",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout",
+                        "validate": {
+                            "max": 300,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "ca",
+                        "type": "cert",
+                        "label": "Self-signed certificate"
+                    },
+                    {
+                        "name": "rejectUnauthorized",
+                        "type": "boolean",
+                        "label": "Reject connections that are using unverified (self-signed) certificates",
+                        "required": true
+                    },
+                    {
+                        "name": "followRedirect",
+                        "type": "boolean",
+                        "label": "Follow redirect",
+                        "required": true
+                    },
+                    {
+                        "name": "useQuerystring",
+                        "type": "boolean",
+                        "label": "Disable serialization of multiple same query string keys as arrays",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    },
+                    {
+                        "name": "useMtls",
+                        "type": "boolean",
+                        "label": "Use Mutual TLS",
+                        "required": true
+                    },
+                    {
+                        "name": "contentType",
+                        "type": "select",
+                        "label": "Content type",
+                        "validate": {
+                            "enum": [
+                                "text/plain",
+                                "application/json",
+                                "application/xml",
+                                "text/xml",
+                                "text/html",
+                                "custom"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Request content"
+                    },
+                    {
+                        "name": "followAllRedirects",
+                        "type": "boolean",
+                        "label": "Follow all redirect",
+                        "required": true
+                    }
+                ]
+            },
+            "onerror": [
+                {
+                    "id": 3,
+                    "module": "datastore:GetRecord",
+                    "version": 1,
+                    "parameters": {
+                        "datastore": 137077
+                    },
+                    "mapper": {
+                        "key": "client_id_twitter",
+                        "returnWrapped": false
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 600,
+                            "y": 300,
+                            "name": "Get Client ID"
+                        },
+                        "restore": {
+                            "parameters": {
+                                "datastore": {
+                                    "label": "My data store"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "datastore",
+                                "type": "datastore",
+                                "label": "Data store",
+                                "required": true
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key",
+                                "required": true
+                            },
+                            {
+                                "name": "returnWrapped",
+                                "type": "boolean",
+                                "label": "Return Wrapped Output",
+                                "required": true
+                            }
+                        ],
+                        "interface": [
+                            {
+                                "help": "",
+                                "name": "Value",
+                                "type": "text",
+                                "label": null,
+                                "default": null,
+                                "required": false,
+                                "multiline": false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 4,
+                    "module": "datastore:GetRecord",
+                    "version": 1,
+                    "parameters": {
+                        "datastore": 137077
+                    },
+                    "mapper": {
+                        "key": "client_id_secrete_twitter",
+                        "returnWrapped": false
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 900,
+                            "y": 300,
+                            "name": "Get Client Secrete"
+                        },
+                        "restore": {
+                            "parameters": {
+                                "datastore": {
+                                    "label": "My data store"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "datastore",
+                                "type": "datastore",
+                                "label": "Data store",
+                                "required": true
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key",
+                                "required": true
+                            },
+                            {
+                                "name": "returnWrapped",
+                                "type": "boolean",
+                                "label": "Return Wrapped Output",
+                                "required": true
+                            }
+                        ],
+                        "interface": [
+                            {
+                                "help": "",
+                                "name": "Value",
+                                "type": "text",
+                                "label": null,
+                                "default": null,
+                                "required": false,
+                                "multiline": false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 5,
+                    "module": "datastore:GetRecord",
+                    "version": 1,
+                    "parameters": {
+                        "datastore": 137077
+                    },
+                    "mapper": {
+                        "key": "refresh_token_twitter",
+                        "returnWrapped": false
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 1200,
+                            "y": 300,
+                            "name": "Get Refresh Token"
+                        },
+                        "restore": {
+                            "parameters": {
+                                "datastore": {
+                                    "label": "My data store"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "datastore",
+                                "type": "datastore",
+                                "label": "Data store",
+                                "required": true
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key",
+                                "required": true
+                            },
+                            {
+                                "name": "returnWrapped",
+                                "type": "boolean",
+                                "label": "Return Wrapped Output",
+                                "required": true
+                            }
+                        ],
+                        "interface": [
+                            {
+                                "help": "",
+                                "name": "Value",
+                                "type": "text",
+                                "label": null,
+                                "default": null,
+                                "required": false,
+                                "multiline": false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 6,
+                    "module": "http:ActionSendData",
+                    "version": 3,
+                    "parameters": {
+                        "handleErrors": true,
+                        "useNewZLibDeCompress": true
+                    },
+                    "mapper": {
+                        "ca": "",
+                        "qs": [],
+                        "url": "https://api.twitter.com/2/oauth2/token",
+                        "data": "grant_type=refresh_token&refresh_token={{5.Value}}&client_id={{3.Value}}",
+                        "gzip": true,
+                        "method": "post",
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Basic {{base64(3.Value + \":\" + 4.Value)}}"
+                            }
+                        ],
+                        "timeout": "",
+                        "useMtls": false,
+                        "authPass": "",
+                        "authUser": "",
+                        "bodyType": "raw",
+                        "contentType": "",
+                        "serializeUrl": false,
+                        "shareCookies": false,
+                        "parseResponse": true,
+                        "followRedirect": true,
+                        "useQuerystring": false,
+                        "followAllRedirects": false,
+                        "rejectUnauthorized": true
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 1500,
+                            "y": 300
+                        },
+                        "restore": {
+                            "expect": {
+                                "qs": {
+                                    "mode": "chose"
+                                },
+                                "method": {
+                                    "mode": "chose",
+                                    "label": "POST"
+                                },
+                                "headers": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null,
+                                        null
+                                    ]
+                                },
+                                "bodyType": {
+                                    "label": "Raw"
+                                },
+                                "contentType": {
+                                    "label": "Empty"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "handleErrors",
+                                "type": "boolean",
+                                "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                                "required": true
+                            },
+                            {
+                                "name": "useNewZLibDeCompress",
+                                "type": "hidden"
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL",
+                                "required": true
+                            },
+                            {
+                                "name": "serializeUrl",
+                                "type": "boolean",
+                                "label": "Serialize URL",
+                                "required": true
+                            },
+                            {
+                                "name": "method",
+                                "type": "select",
+                                "label": "Method",
+                                "required": true,
+                                "validate": {
+                                    "enum": [
+                                        "get",
+                                        "head",
+                                        "post",
+                                        "put",
+                                        "patch",
+                                        "delete",
+                                        "options"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "headers",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Headers"
+                            },
+                            {
+                                "name": "qs",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Query String"
+                            },
+                            {
+                                "name": "bodyType",
+                                "type": "select",
+                                "label": "Body type",
+                                "validate": {
+                                    "enum": [
+                                        "raw",
+                                        "x_www_form_urlencoded",
+                                        "multipart_form_data"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "parseResponse",
+                                "type": "boolean",
+                                "label": "Parse response",
+                                "required": true
+                            },
+                            {
+                                "name": "authUser",
+                                "type": "text",
+                                "label": "User name"
+                            },
+                            {
+                                "name": "authPass",
+                                "type": "password",
+                                "label": "Password"
+                            },
+                            {
+                                "name": "timeout",
+                                "type": "uinteger",
+                                "label": "Timeout",
+                                "validate": {
+                                    "max": 300,
+                                    "min": 1
+                                }
+                            },
+                            {
+                                "name": "shareCookies",
+                                "type": "boolean",
+                                "label": "Share cookies with other HTTP modules",
+                                "required": true
+                            },
+                            {
+                                "name": "ca",
+                                "type": "cert",
+                                "label": "Self-signed certificate"
+                            },
+                            {
+                                "name": "rejectUnauthorized",
+                                "type": "boolean",
+                                "label": "Reject connections that are using unverified (self-signed) certificates",
+                                "required": true
+                            },
+                            {
+                                "name": "followRedirect",
+                                "type": "boolean",
+                                "label": "Follow redirect",
+                                "required": true
+                            },
+                            {
+                                "name": "useQuerystring",
+                                "type": "boolean",
+                                "label": "Disable serialization of multiple same query string keys as arrays",
+                                "required": true
+                            },
+                            {
+                                "name": "gzip",
+                                "type": "boolean",
+                                "label": "Request compressed content",
+                                "required": true
+                            },
+                            {
+                                "name": "useMtls",
+                                "type": "boolean",
+                                "label": "Use Mutual TLS",
+                                "required": true
+                            },
+                            {
+                                "name": "contentType",
+                                "type": "select",
+                                "label": "Content type",
+                                "validate": {
+                                    "enum": [
+                                        "text/plain",
+                                        "application/json",
+                                        "application/xml",
+                                        "text/xml",
+                                        "text/html",
+                                        "custom"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Request content"
+                            },
+                            {
+                                "name": "followAllRedirects",
+                                "type": "boolean",
+                                "label": "Follow all redirect",
+                                "required": true
+                            }
+                        ],
+                        "advanced": true
+                    }
+                },
+                {
+                    "id": 7,
+                    "module": "datastore:AddRecord",
+                    "version": 1,
+                    "parameters": {
+                        "datastore": 137077
+                    },
+                    "mapper": {
+                        "key": "refresh_token_twitter",
+                        "data": {
+                            "Value": "{{6.data.refresh_token}}"
+                        },
+                        "overwrite": true
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 1800,
+                            "y": 300,
+                            "name": "Store Refresh Token"
+                        },
+                        "restore": {
+                            "expect": {
+                                "overwrite": {
+                                    "mode": "chose"
+                                }
+                            },
+                            "parameters": {
+                                "datastore": {
+                                    "label": "My data store"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "datastore",
+                                "type": "datastore",
+                                "label": "Data store",
+                                "required": true
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "overwrite",
+                                "type": "boolean",
+                                "label": "Overwrite an existing record",
+                                "required": true
+                            },
+                            {
+                                "name": "data",
+                                "spec": [
+                                    {
+                                        "name": "Value",
+                                        "type": "text",
+                                        "label": null
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Record"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 8,
+                    "module": "datastore:AddRecord",
+                    "version": 1,
+                    "parameters": {
+                        "datastore": 137077
+                    },
+                    "mapper": {
+                        "key": "access_token_twitter",
+                        "data": {
+                            "Value": " {{6.data.access_token}}"
+                        },
+                        "overwrite": true
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 2100,
+                            "y": 300,
+                            "name": "Store Access Token"
+                        },
+                        "restore": {
+                            "expect": {
+                                "overwrite": {
+                                    "mode": "chose"
+                                }
+                            },
+                            "parameters": {
+                                "datastore": {
+                                    "label": "My data store"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "datastore",
+                                "type": "datastore",
+                                "label": "Data store",
+                                "required": true
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "overwrite",
+                                "type": "boolean",
+                                "label": "Overwrite an existing record",
+                                "required": true
+                            },
+                            {
+                                "name": "data",
+                                "spec": [
+                                    {
+                                        "name": "Value",
+                                        "type": "text",
+                                        "label": null
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Record"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 9,
+                    "module": "http:ActionSendData",
+                    "version": 3,
+                    "parameters": {
+                        "handleErrors": true,
+                        "useNewZLibDeCompress": true
+                    },
+                    "mapper": {
+                        "ca": "",
+                        "qs": [],
+                        "url": "https://api.twitter.com/2/tweets",
+                        "data": "{\n  \"text\": \"This is test post\"\n}",
+                        "gzip": true,
+                        "method": "post",
+                        "headers": [
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer {{6.data.access_token}}"
+                            },
+                            {
+                                "name": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "timeout": "",
+                        "useMtls": false,
+                        "authPass": "",
+                        "authUser": "",
+                        "bodyType": "raw",
+                        "contentType": "",
+                        "serializeUrl": false,
+                        "shareCookies": false,
+                        "parseResponse": false,
+                        "followRedirect": true,
+                        "useQuerystring": false,
+                        "followAllRedirects": false,
+                        "rejectUnauthorized": true
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 2400,
+                            "y": 300
+                        },
+                        "restore": {
+                            "expect": {
+                                "qs": {
+                                    "mode": "chose"
+                                },
+                                "method": {
+                                    "mode": "chose",
+                                    "label": "POST"
+                                },
+                                "headers": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null,
+                                        null
+                                    ]
+                                },
+                                "bodyType": {
+                                    "label": "Raw"
+                                },
+                                "contentType": {
+                                    "label": "Empty"
+                                }
+                            }
+                        },
+                        "parameters": [
+                            {
+                                "name": "handleErrors",
+                                "type": "boolean",
+                                "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                                "required": true
+                            },
+                            {
+                                "name": "useNewZLibDeCompress",
+                                "type": "hidden"
+                            }
+                        ],
+                        "expect": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL",
+                                "required": true
+                            },
+                            {
+                                "name": "serializeUrl",
+                                "type": "boolean",
+                                "label": "Serialize URL",
+                                "required": true
+                            },
+                            {
+                                "name": "method",
+                                "type": "select",
+                                "label": "Method",
+                                "required": true,
+                                "validate": {
+                                    "enum": [
+                                        "get",
+                                        "head",
+                                        "post",
+                                        "put",
+                                        "patch",
+                                        "delete",
+                                        "options"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "headers",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Headers"
+                            },
+                            {
+                                "name": "qs",
+                                "spec": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    }
+                                ],
+                                "type": "array",
+                                "label": "Query String"
+                            },
+                            {
+                                "name": "bodyType",
+                                "type": "select",
+                                "label": "Body type",
+                                "validate": {
+                                    "enum": [
+                                        "raw",
+                                        "x_www_form_urlencoded",
+                                        "multipart_form_data"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "parseResponse",
+                                "type": "boolean",
+                                "label": "Parse response",
+                                "required": true
+                            },
+                            {
+                                "name": "authUser",
+                                "type": "text",
+                                "label": "User name"
+                            },
+                            {
+                                "name": "authPass",
+                                "type": "password",
+                                "label": "Password"
+                            },
+                            {
+                                "name": "timeout",
+                                "type": "uinteger",
+                                "label": "Timeout",
+                                "validate": {
+                                    "max": 300,
+                                    "min": 1
+                                }
+                            },
+                            {
+                                "name": "shareCookies",
+                                "type": "boolean",
+                                "label": "Share cookies with other HTTP modules",
+                                "required": true
+                            },
+                            {
+                                "name": "ca",
+                                "type": "cert",
+                                "label": "Self-signed certificate"
+                            },
+                            {
+                                "name": "rejectUnauthorized",
+                                "type": "boolean",
+                                "label": "Reject connections that are using unverified (self-signed) certificates",
+                                "required": true
+                            },
+                            {
+                                "name": "followRedirect",
+                                "type": "boolean",
+                                "label": "Follow redirect",
+                                "required": true
+                            },
+                            {
+                                "name": "useQuerystring",
+                                "type": "boolean",
+                                "label": "Disable serialization of multiple same query string keys as arrays",
+                                "required": true
+                            },
+                            {
+                                "name": "gzip",
+                                "type": "boolean",
+                                "label": "Request compressed content",
+                                "required": true
+                            },
+                            {
+                                "name": "useMtls",
+                                "type": "boolean",
+                                "label": "Use Mutual TLS",
+                                "required": true
+                            },
+                            {
+                                "name": "contentType",
+                                "type": "select",
+                                "label": "Content type",
+                                "validate": {
+                                    "enum": [
+                                        "text/plain",
+                                        "application/json",
+                                        "application/xml",
+                                        "text/xml",
+                                        "text/html",
+                                        "custom"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "data",
+                                "type": "buffer",
+                                "label": "Request content"
+                            },
+                            {
+                                "name": "followAllRedirects",
+                                "type": "boolean",
+                                "label": "Follow all redirect",
+                                "required": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
